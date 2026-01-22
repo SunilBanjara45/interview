@@ -8,7 +8,6 @@ export interface MenuItem {
 export interface CompetitionItem {
   id: string;
   label: string;
-  count: number;
 }
 
 export interface NewsItem {
@@ -17,6 +16,7 @@ export interface NewsItem {
   image: string;
   hasVideo?: boolean;
   hasPin?: boolean;
+  time:string;
 }
 
 export interface Match {

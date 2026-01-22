@@ -1,22 +1,21 @@
 // components/Sidebar.tsx
 import React from 'react';
-import { Search, Home, Users, Trophy, Bell, Settings, Download } from 'lucide-react';
+import { Search, Home, Users, Trophy, Bell, Settings, Download, ChartBarIcon, ChevronRight } from 'lucide-react';
 import { SidebarProps, MenuItem, CompetitionItem } from '../types';
 
 const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab }) => {
   const menuItems: MenuItem[] = [
     { id: 'home', icon: Home, label: 'Home' },
     { id: 'leader', icon: Trophy, label: 'Leader Board' },
-    { id: 'bracket', icon: Users, label: 'Bracket' },
-    { id: 'chat', icon: Bell, label: 'Chat' },
+    { id: 'bracket', icon: Users, label: 'Ground' },
+    { id: 'chat', icon: ChartBarIcon, label: 'Chat' },
     { id: 'notification', icon: Bell, label: 'Notification' },
   ];
 
   const competitionItems: CompetitionItem[] = [
-    { id: 'uefa', label: 'UEFA Champions League', count: 122 },
-    { id: 'laliga', label: 'LaLiga Santander', count: 80 },
-    { id: 'premier', label: 'Premier League', count: 250 },
-    { id: 'ligue1', label: 'Ligue 1', count: 64 },
+    { id: 'uefa', label: 'Followed Team'},
+    { id: 'laliga', label: 'Followed Players'},
+    { id: 'premier', label: 'Followed Ground' },
   ];
 
   return (
@@ -24,7 +23,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab }) => {
       <div className="mb-8">
         <div className="text-center gap-2 mb-6">
           {/* <div className="w-8 h-8 bg-yellow-400 rounded"></div> */}
-          <span className="font-bold text-lg ">FOOTBALL<span className='text-[#c3cc5a]'>SHURU</span> </span>
+          <span className="font-bold text-lg italic">FOOTBALL<span className='text-[#c3cc5a]'>SHURU</span> </span>
         </div>
 
         <div className="relative mb-6">
@@ -52,7 +51,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab }) => {
       </div>
 
       <div className="flex-1">
-        <h3 className="text-xs font-semibold text-gray-400 mb-3 uppercase">Following</h3>
+        {/* <h3 className="text-xs font-semibold text-gray-400 mb-3 uppercase">Following</h3> */}
         <div className="space-y-1">
           {competitionItems.map((item) => (
             <div
@@ -60,7 +59,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab }) => {
               className="flex items-center justify-between px-3 py-2 hover:bg-gray-800 rounded-lg cursor-pointer"
             >
               <span className="text-sm">{item.label}</span>
-              <span className="text-xs text-gray-500">{item.count}</span>
+              <ChevronRight className="w-5 h-5" />
             </div>
           ))}
         </div>
@@ -71,7 +70,7 @@ const Sidebar: React.FC<SidebarProps> = ({ activeTab, setActiveTab }) => {
           <Settings className="w-5 h-5" />
           <span className="text-sm">Settings</span>
         </button>
-        <button className="w-full flex items-center gap-3 px-3 py-2 rounded-lg bg-yellow-400 text-gray-900 hover:bg-yellow-500">
+        <button className="w-full flex items-center gap-3 px-3 py-2 rounded-lg text-white">
           <Download className="w-5 h-5" />
           <span className="text-sm font-semibold">Download The App</span>
         </button>

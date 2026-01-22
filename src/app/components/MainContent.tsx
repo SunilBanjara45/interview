@@ -1,6 +1,7 @@
 // components/MainContent.tsx
 import React from 'react';
 import HeroSection from './HeroSection';
+import MatchNavigation from './MatchNavigation';
 import MatchesSection from './MatchesSection';
 import TrendingNews from './TrendingNews';
 
@@ -9,7 +10,8 @@ const MainContent: React.FC = () => {
     <div className="flex overflow-y-auto">
       <div className="p-6">
         <HeroSection />
-       <MatchesSection/>
+        <MatchNavigation />
+        <MatchesSection/>
       </div>
     </div>
   );
